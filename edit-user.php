@@ -30,7 +30,7 @@
           
           <h1>Edit it</h1>
 
-          <form action="add-user-edit-script.php" method="POST">
+          <form action="edit-user-script.php" method="POST">
             <div class="mb-3">
               <label for="name">Name</label>
               <input type="text" class="form-control" name="name" value="<?php echo $line['name']; ?>">

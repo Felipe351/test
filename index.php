@@ -27,10 +27,21 @@
             <br>
             <br>
 
-            <!-- optional buttons -->
             <a class="btn btn-primary btn-lg" href="add-course.php" role="button">Add a new course</a>
             <a class="btn btn-primary btn-lg" href="view-course.php" role="button">Search & Edit course</a>
-            
+            <br>
+            <br>
+
+            <a class="btn btn-primary btn-lg" href="add-module.php" role="button">Add a new module</a>
+            <a class="btn btn-primary btn-lg" href="view-module.php" role="button">Search & Edit module</a>
+            <br>
+            <br>
+
+            <a class="btn btn-primary btn-lg" href="add-content.php" role="button">Add a new content</a>
+            <a class="btn btn-primary btn-lg" href="view-content.php" role="button">Search & Edit content</a>
+            <br>
+            <br>
+
           </div>
 
         </div>

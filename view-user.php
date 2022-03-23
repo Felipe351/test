@@ -70,7 +70,7 @@
                     <td>$date_two</td>
 
                     <td width='150px'>
-                      <a href='add-user-edit.php?id=$id_user' class='btn btn-success btn-sm'>Edit it</a>
+                      <a href='edit-user.php?id=$id_user' class='btn btn-success btn-sm'>Edit it</a>
                       <a href='delete-user.php?id=$id_user' class='btn btn-danger btn-sm'>Delet it</a>
                     </td>
                   </tr>";
