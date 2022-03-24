@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <title>Search & Edit courses</title>
+    <title>Search & Edit module</title>
   </head>
   <body>
 
@@ -17,7 +17,7 @@
       
       include "connection.php";
 
-      $sql = "SELECT * FROM course WHERE title LIKE '%$view%'";
+      $sql = "SELECT * FROM module WHERE title LIKE '%$view%'";
 
       $datas = mysqli_query($mysqli, $sql);
       ?>
@@ -29,7 +29,7 @@
           <h1>Search or Edit</h1>
 
           <nav class="navbar navbar-light bg-light">
-            <form class="form-inline" action="view-course.php" method="POST">
+            <form class="form-inline" action="view-module.php" method="POST">
               <input class="form-control mr-sm-2" type="search" placeholder="Type the title" aria-label="Search" name="search" autofocus>
               <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
@@ -53,9 +53,9 @@
               <!-- Taking the information from the database to fit in the columns -->
               <?php
                 while ($line = mysqli_fetch_assoc($datas)) {
-                  $id_course = $line['id_course'];
+                  $id_module = $line['id_module'];
                   $title = $line['title'];
-                  $description = $line['description'];
+                  $description = $line['desctiption'];
                   $date = $line['date_modifie'];
                   
                   echo "<tr>
@@ -64,8 +64,8 @@
                     <td>$date</td>
                     
                     <td width='150px'>
-                      <a href='edit-course.php?id=$id_course' class='btn btn-success btn-sm'>Edit it</a>
-                      <a href='delete-course.php?id=$id_course' class='btn btn-danger btn-sm'>Delet it</a>
+                      <a href='edit-module.php?id=$id_module' class='btn btn-success btn-sm'>Edit it</a>
+                      <a href='delete-module.php?id=$id_module' class='btn btn-danger btn-sm'>Delet it</a>
                     </td>
                   </tr>";
                 }

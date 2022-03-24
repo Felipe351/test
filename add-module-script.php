@@ -8,7 +8,7 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
-    <title>Add a course</title>
+    <title>Add a module</title>
   </head>
   <body>
 
@@ -28,11 +28,11 @@
 
           $title = $_POST['title'];
           $description = $_POST['description'];
-          $user_id = $_POST['responsible_user'];
+          $course_id = $_POST['course_title'];
           $date_one = $_POST['date_one'];
           $date_two = $_POST['date_one'];
 
-          $sql = "INSERT INTO `course`(`title`, `description`, `user_id`, `date_create`, `date_modifie`) VALUES ('$title', '$description', '$user_id', '$date_one', '$date_two')";
+          $sql = "INSERT INTO `module`(`title`, `desctiption`, `course_id`, `date_create`, `date_modifie`) VALUES ('$title', '$description', '$course_id', '$date_one', '$date_two')";
 
           #Checking the addition
           if (mysqli_query($mysqli, $sql)) {
@@ -44,7 +44,7 @@
         <!-- back to home page button -->
         <a href="index.php" class="btn btn-primary">Back to main page</a>
         <!-- back to home page button -->
-        <a href="add-course.php" class="btn btn-primary">Add a new course</a>
+        <a href="add-module.php" class="btn btn-primary">Add a new module</a>
       </div>
     </div>
 

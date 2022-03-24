@@ -28,14 +28,14 @@
           <?php
           require "connection.php";
 
-          $sql = "select name, id_user from user;";
+          $sql = "select title, id_course from course;";
           $result = mysqli_query($mysqli, $sql);
           ?>
           
           <h1>Fill those blank spaces</h1>
 
           <!-- blank spaces to fill -->
-          <form action="add-course-script.php" method="POST">
+          <form action="add-module-script.php" method="POST">
             <div class="mb-3">
               <label for="title">Title*</label>
               <input type="text" class="form-control" name="title" required>
@@ -52,16 +52,16 @@
             </div>
 
             <!-- Foreign Key -->
-            <select class="form-select" aria-label="Default select example" name="responsible_user">
-              <option value="it" selected>Select an user</option>
+            <select class="form-select" aria-label="Default select example" name="course_title">
+              <option value="it" selected>Select a course</option>
 
               <?php
                 while ($datas = mysqli_fetch_assoc($result)){
-                  $id = $datas['id_user'];
-                  $name = $datas['name'];
+                  $id = $datas['id_course'];
+                  $title_c = $datas['title'];
 
                   echo "
-                    <option value='$id'>$name</option>
+                    <option value='$id'>$title_c</option>
                   ";
                 }
               ?>
