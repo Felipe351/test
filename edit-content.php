@@ -25,7 +25,7 @@
     include "connection.php";
 
     $id = $_GET['id'] ?? '';
-    $sql = "SELECT * FROM  course WHERE id_course = $id";
+    $sql = "SELECT * FROM  content WHERE id_content = $id";
 
     $data = mysqli_query($mysqli, $sql);
     $line = mysqli_fetch_assoc($data);
@@ -38,15 +38,15 @@
           
           <h1>Edit it</h1>
 
-          <form action="edit-course-script.php" method="POST">
+          <form action="edit-content-script.php" method="POST">
             <div class="mb-3">
               <label for="title">Title</label>
               <input type="text" class="form-control" name="title" value="<?php echo $line['title']; ?>">
             </div>
 
             <div class="mb-3">
-              <label for="description">Description</label>
-              <input type="text" class="form-control" name="description" value="<?php echo $line['description']; ?>">
+              <label for="description">Description Text</label>
+              <input type="text" class="form-control" name="description" value="<?php echo $line['text']; ?>">
             </div>
 
             <div class="mb-3">
@@ -55,23 +55,23 @@
             </div>
 
             <!-- FK -->
-            <select class="form-select" aria-label="Default select example" name="responsible_user">
-              <option value="it" selected>Select an user</option>
+            <select class="form-select" aria-label="Default select example" name="title_module">
+              <option value="it" selected>Select a course</option>
 
               <?php
 
                 require "connection.php";
 
-                $sql = "select name, id_user from user;";
+                $sql = "select title, id_module from module;";
                 $result = mysqli_query($mysqli, $sql);
                 
 
                 while ($datas = mysqli_fetch_assoc($result)){
-                  $id = $datas['id_user'];
-                  $name = $datas['name'];
+                  $id = $datas['id_module'];
+                  $title = $datas['title'];
 
                   echo "
-                    <option value='$id'>$name</option>
+                    <option value='$id'>$title</option>
                   ";
                 }
               ?>
@@ -79,12 +79,12 @@
 
             <div class="mb-3">
               <input type="submit" class="btn btn-success" value="Save it">
-              <input type="hidden" name="id" value="<?php echo $line['id_course']; ?>">
+              <input type="hidden" name="id" value="<?php echo $line['id_content']; ?>">
             </div>
 
           </form>
 
-          <a href="view-course.php" class="btn btn-primary">Back to search page</a>
+          <a href="view-content.php" class="btn btn-primary">Back to search page</a>
           <a href="index.php" class="btn btn-primary">Back to main page</a>
         </div>
       </div>

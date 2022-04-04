@@ -15,7 +15,7 @@
         <li class="breadcrumb-item active" aria-current="page"><a href="#">Edition Page</a></li>
       </ol>
     </nav>
-    
+
     <title>Data Edition</title>
   </head>
   <body>
@@ -28,10 +28,10 @@
           $id = $_POST['id'];
           $title = $_POST['title'];
           $description = $_POST['description'];
-          $user_id = $_POST['responsible_user'];
+          $module_id = $_POST['title_module'];
           $date_two = $_POST['date_two'];
 
-          $sql = "UPDATE `course` SET `title` = '$title', `description` = '$description', `user_id` = '$user_id', `date_modifie` = '$date_two' WHERE id_course = $id";
+          $sql = "UPDATE `content` SET `title` = '$title', `text` = '$description', `module_id` = '$module_id', `date_modifie` = '$date_two' WHERE id_content = $id";
 
           #Checking the addition
           if (mysqli_query($mysqli, $sql)) {
@@ -42,7 +42,7 @@
         <a href="index.php" class="btn btn-primary">Back to main page</a>
         <br>
         <br>
-        <a href="view-course.php" class="btn btn-primary">Back to search 'n' edit</a>
+        <a href="view-content.php" class="btn btn-primary">Back to search 'n' edit</a>
       </div>
     </div>
 

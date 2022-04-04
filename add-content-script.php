@@ -8,41 +8,43 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="css/bootstrap.min.css">
 
+    <title>Add a content</title>
+  </head>
+  <body>
+
     <!-- Navigation -->
     <nav style="--bs-breadcrumb-divider: '>';" aria-label="breadcrumb">
       <ol class="breadcrumb">
         <li class="breadcrumb-item"><a href="./index.php">Home</a></li>
-        <li class="breadcrumb-item active" aria-current="page"><a href="#">Edition Page</a></li>
+        <li class="breadcrumb-item active" aria-current="page"><a href="#">Addition Page</a></li>
       </ol>
     </nav>
-    
-    <title>Data Edition</title>
-  </head>
-  <body>
 
+    <!-- Sending the information to the database -->
     <div class="container">
       <div class="row">
         <?php
           include "connection.php";
 
-          $id = $_POST['id'];
           $title = $_POST['title'];
-          $description = $_POST['description'];
-          $user_id = $_POST['responsible_user'];
-          $date_two = $_POST['date_two'];
+          $text = $_POST['text'];
+          $module_id = $_POST['module_title'];
+          $date_one = $_POST['date_one'];
+          $date_two = $_POST['date_one'];
 
-          $sql = "UPDATE `course` SET `title` = '$title', `description` = '$description', `user_id` = '$user_id', `date_modifie` = '$date_two' WHERE id_course = $id";
+          $sql = "INSERT INTO `content`(`title`, `text`, `module_id`, `date_create`, `date_modifie`) VALUES ('$title', '$text', '$module_id', '$date_one', '$date_two')";
 
           #Checking the addition
           if (mysqli_query($mysqli, $sql)) {
-            echo "$title successfully edited";
+            echo "$title is just sucessfully added";
           } else
             echo "ERROR";
         ?>
+
+        <!-- back to home page button -->
         <a href="index.php" class="btn btn-primary">Back to main page</a>
-        <br>
-        <br>
-        <a href="view-course.php" class="btn btn-primary">Back to search 'n' edit</a>
+        <!-- back to home page button -->
+        <a href="add-content.php" class="btn btn-primary">Add a new content</a>
       </div>
     </div>
 
